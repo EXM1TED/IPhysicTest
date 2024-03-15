@@ -49,7 +49,6 @@ namespace Я_физик_тест.Classes
        public void RegConfirm() 
         {
            Login = LoginInputTxt.Text;
-           Email = EmailInputTxt.Text;
            Password = PasswordInputTxt.Password;
         }
     }

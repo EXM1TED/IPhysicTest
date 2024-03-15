@@ -14,6 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Я_физик_тест.Classes;
+using Я_физик_тест.Pages;
 
 namespace Я_физик_тест
 {
@@ -28,18 +29,14 @@ namespace Я_физик_тест
         {
             InitializeComponent();
         }
-
-        string Login = string.Empty;
-        string Email = string.Empty;
-        string Password = string.Empty;
         string PasswordCheck = string.Empty;
         public void BtnRegistrationConfirm_Click(object sender, RoutedEventArgs e)
         {
-            Login = LoginInputTxt.Text;
-            Email = EmailInputTxt.Text;
-            Password = PasswordInputTxt.Password;
-            PasswordCheck = PasswordInputCheckTxt.Password;
-            if (LoginInputTxt.Text == "" && EmailInputTxt.Text == "" && PasswordInputTxt.Password == "" && PasswordInputCheckTxt.Password == "")
+            UserClass user = new UserClass();
+            user.Login = LoginInputTxt.Text;
+            user.Password = PasswordInputTxt.Password;
+            string checkPassword = PasswordInputCheckTxt.Password;
+            if (LoginInputTxt.Text == "" && PasswordInputTxt.Password == "" && PasswordInputCheckTxt.Password == "")
             {
                 MessageBox.Show("Заполните хотя бы одно из полей", "Ошибка ввода", MessageBoxButton.OK, MessageBoxImage.Error);
             }
@@ -47,21 +44,23 @@ namespace Я_физик_тест
             {
                 MessageBox.Show("Заполните поле: Логин", "Ошибка ввода", MessageBoxButton.OK, MessageBoxImage.Error);
             }
-            else if (EmailInputTxt.Text == "")
-            {
-                MessageBox.Show("Заполните поле: Электронная почта", "Ошибка ввода", MessageBoxButton.OK, MessageBoxImage.Error);
-            }
             else if (PasswordInputTxt.Password == "")
             {
                 MessageBox.Show("Заполните поле: Пароль", "Ошибка ввода", MessageBoxButton.OK, MessageBoxImage.Error);
             }
-            else if (PasswordCheck != Password)
+            else if (checkPassword != user.Password)
             {
                  MessageBox.Show("Пароли не совпадают", "Ошибка ввода", MessageBoxButton.OK, MessageBoxImage.Error);
             }
             else if (RadBtnBeginner.IsChecked == false && RadBtnMidle.IsChecked == false && RadBtnЕxperienced.IsChecked == false) 
             {
                 MessageBox.Show("Выберите свой уровень знаний по физике", "Ошибка регистрации", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            else
+            {
+                Close();
+                MainMenu mainMenu = new MainMenu();
+                mainMenu.Show();
             }
         }
         private void ChkBxShowPassword_Checked(object sender, RoutedEventArgs e)
@@ -73,6 +72,7 @@ namespace Я_физик_тест
 
         private void ChkBxShowPassword_Unchecked(object sender, RoutedEventArgs e)
         {
+            PasswordInputTxt.Password = PasswordInputTxtVisible.Text;
             PasswordInputTxtVisible.Visibility = Visibility.Collapsed;
             PasswordInputTxt.Visibility = Visibility.Visible;
             PasswordInputTxt.Focus();

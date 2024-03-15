@@ -13,7 +13,7 @@
             <RowDefinition Height="1*"/>
         </Grid.RowDefinitions>
         <StackPanel Grid.Row="0" Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center">
-            <Image Source="C:\Users\chest\OneDrive\Рабочий стол\Logo.png"  Height="180"/>
+            <Image Source="\Images\Logo.png"  Height="180"/>
             <TextBlock Text="Регистрация" FontSize="24" TextAlignment="Center"/>
         </StackPanel>
         <StackPanel Grid.Row="1" Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Center" 
@@ -21,10 +21,6 @@
             <StackPanel Orientation="Horizontal">
                 <TextBlock Name="LoginInput" Text="Логин:" FontSize="20" Width="200px" Margin="5"/>
                 <TextBox Name="LoginInputTxt" FontSize="20" Width="200px" Margin="5"/>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal">
-                <TextBlock Name="EmailInput" Text="Электронная почта:" FontSize="20" Width="200px" Margin="5"/>
-                <TextBox Name="EmailInputTxt" FontSize="20" Width="200px" Margin="5" />
             </StackPanel>
             <StackPanel Orientation="Horizontal">
                 <TextBlock Name="PasswordInput" Text="Пароль:" FontSize="20" Width="200px" Margin="5"/>
@@ -47,12 +43,12 @@
                              Margin="5"/>
             </StackPanel>
             <StackPanel Margin="0 10 0 0">
-                <Label Content="Выберите ваш уровень знаний по физике:" FontSize="16"/>
-                <RadioButton Name="RadBtnBeginner" Content="Я новичок" FontSize="16" 
+                <Label Content="В каком классе ты учишься?" FontSize="16"/>
+                <RadioButton Name="RadBtnBeginner" Content="Я учусь в 7 классе" FontSize="16" 
                              Margin="10 0 0 5"/>
-                <RadioButton Name="RadBtnMidle" Content="Я немного разбираюсь" FontSize="16" 
+                <RadioButton Name="RadBtnMidle" Content="Я учусь в 8 классе" FontSize="16" 
                              Margin="10 0 0 5"/>
-                <RadioButton Name="RadBtnЕxperienced" Content='"Я физик"' FontSize="16" 
+                <RadioButton Name="RadBtnЕxperienced" Content="Я учусь в 9 классе" FontSize="16" 
                              Margin="10 0 0 5"/>
             </StackPanel>
         </StackPanel>
